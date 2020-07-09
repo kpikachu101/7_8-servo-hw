@@ -2,7 +2,7 @@
 Servo myServo;
 #include "DHT.h"
 #define DHTPIN 2
-#define DHTTYPE DHT22
+#define DHTTYPE DHT11
 #define POTPIN A0
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -26,7 +26,7 @@ if (isnan(t)){
   Serial.print("Your temp is -> ");
   Serial.println(t);
 
-  int servoPos = map(t,0,150,0,180);
+  int servoPos = map(t,20,30,0,180);
   myServo.write(servoPos);
   delay(50);
 }
